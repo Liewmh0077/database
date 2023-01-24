@@ -1,0 +1,42 @@
+insert into staff values('S0001','Marena','Female','0141464964','Marena8273@gmail.com','Healthy','I7619',TO_DATE('1-3-2022','dd-mm-yyyy'),'51588 Lerdahl Junction','0114802485','Full time','Manager');
+insert into staff values('S0002','Amberly','Female','0159360891','Amberly3512@gmail.com','Asthma','I6827',TO_DATE('19-8-2022','dd-mm-yyyy'),'5 Coolidge Way','0153667207','Full time','Cashier');
+insert into staff values('S0003','Bruno','Female','0133713037','Bruno4337@gmail.com','Healthy','I3288',TO_DATE('25-9-2022','dd-mm-yyyy'),'06070 Mallory Junction','0162786803','Part time','Cashier');
+insert into staff values('S0004','Mira','Female','0149417203','Mira6837@gmail.com','Healthy','I8846',TO_DATE('1-3-2022','dd-mm-yyyy'),'06070 Mallory Junction','0162786803','Full time','Cleaner');
+insert into staff values('S0005','Ronica','Female','0145019377','Ronica1739@gmail.com','Hand Injury','I7130','9/4/2022','7374 Myrtle Plaza','0191922730','Part time','Cashier');
+insert into staff values('S0006','Matty','Male','0126747920','Matty4401@gmail.com','Asthma','I5880',TO_DATE('5-1-2022','dd-mm-yyyy'),'7 Heffernan Street','0159743959','Full time','Maintenance');
+insert into staff values('S0007','Johann','Male','0126747920','Johann9039@gmail.com','Healthy','I6479',TO_DATE('6-5-2021','dd-mm-yyyy'),'0 Crownhardt Terrace','0152616667','Full time','Butcher');
+insert into staff values('S0008','Vitoria','Female','0199609283','Vitoria3997@gmail.com','Hand Injury','I7659',TO_DATE('4-3-2022','dd-mm-yyyy')
+,'2723 Fair Oaks Place','0183807126','Full time','Cashier');
+insert into staff values('S0009','Frank','Male','0181949607','Frank2322@gmail.com','Healthy','I8881',TO_DATE('31-5-2021','dd-mm-yyyy'),'14 Melrose Center','010-691-7899','Full time','Cleaner');
+insert into staff values('S0010','Gustavo','Male','0195409260','Gustavo8448@gmail.com','Healthy','I4505',TO_DATE('6-6-2021','dd-mm-yyyy'),'0 Montana Court','015-662-8366','Full time','Butcher');
+insert into staff values('S0011','Fionna','Female','0175265030','Fionna1070@gmail.com','Asthma','I5708',TO_DATE('10-5-2021','dd-mm-yyyy'),'5606 Banding Plaza','016-792-0697','Full time','staff Service');
+insert into staff values('S0012','Ford','Male','0194904884','Ford4052@gmail.com','Healthy','I6819',TO_DATE('29-8-2021','dd-mm-yyyy'),'36085 Iowa Road','017-270-4555','Full time','Stock Clerk');
+insert into staff values('S0013','Ash','Male','0194751912','Ash5573@gmail.com','Healthy','I6119',TO_DATE('28-2-2022','dd-mm-yyyy'),'57 American Terrace','015-549-0923','Full time','Assistant Manager');
+insert into staff values('S0014','Annabell','Female','0179243422','Annabell3127@gmail.com','Healthy','I6329',TO_DATE('14-8-2022','dd-mm-yyyy'),'97900 8th Trail','015-649-0576','Full time','Cashier');
+insert into staff values('S0015','Wendel','Male','0193253267','Wendel1031@gmail.com','Leg injury','I3702',TO_DATE('12-7-2021','dd-mm-yyyy'),'14949 Continental Way','010-356-6155','Full time','Stock Clerk');
+insert into staff values('S0016','Lura','Female','0164516845','Lura9382@gmail.com','Healthy','I2460',TO_DATE('27-10-2022','dd-mm-yyyy'),'397 Oxford Court','0155103191','Part time','Cashier');
+insert into staff values('S0017','Henrik','Male','0119545210','Henrik1934@gmail.com','Asthma','I9739',TO_DATE('21-4-2022','dd-mm-yyyy'),'6 Columbus Point','0148982964','Full time','Maintenance');
+insert into staff values('S0018','Michail','Male','0129761683','Michail6088@gmail.com','Healthy','I6221',TO_DATE('8-2-2021','dd-mm-yyyy'),'068 Stang Pass','0178567846','Full time','Cleaner');
+insert into staff values('S0019','Gale','Male','0143921986','Gale2346@gmail.com','Healthy','I7789',TO_DATE('20-3-2022','dd-mm-yyyy'),'492 Prentice Lane','0103161742','Full time','Maintenance');
+insert into staff values('S0020','Robinson','Male','0117982087','Robinson9790@gmail.com','Healthy','I6431',TO_DATE('19-4-2021','dd-mm-yyyy'),'6659 Sunfield Hill','0128953204','Full time','staff Service');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

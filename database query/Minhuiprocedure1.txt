@@ -1,0 +1,75 @@
+SET PAGESIZE 100
+SET LINESIZE 130
+
+CREATE OR REPLACE PROCEDURE prc_update_staffPosition_by_id(v_id IN VARCHAR, v_sPosition in varchar) IS
+v_staffName Staff.StaffName%TYPE;
+v_staffGender Staff.StaffGender%TYPE;
+v_staffContact Staff.StaffContact%TYPE;
+v_staffEmail Staff.StaffEmail%TYPE;
+v_staffHealthReport Staff.StaffHealthReport%TYPE;
+v_staffInsurance Staff.StaffInsurance%TYPE;
+v_staffHireDate Staff.StaffHireDate%TYPE;
+v_staffAddress Staff.StaffAddress%TYPE;
+v_staffEmergencyContact Staff.StaffEmergencyContact%TYPE;
+v_staffReport Staff.StaffReport%TYPE;
+v_staffPosition Staff.StaffPosition%TYPE;
+
+
+BEGIN
+
+update Staff
+set StaffPosition = v_sPosition
+where StaffID = v_id;
+
+ SELECT StaffName, StaffGender, StaffContact, StaffEmail, StaffHealthReport, StaffInsurance, StaffHireDate, StaffAddress, StaffEmergencyContact, StaffReport, StaffPosition INTO
+        v_staffName, v_staffGender, v_staffContact, v_staffEmail, v_staffHealthReport, v_staffInsurance, v_staffHireDate, v_staffAddress, v_staffEmergencyContact, v_staffReport, v_staffPosition 
+ FROM staff
+ WHERE StaffID = v_id;
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 100, '='));
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE('Staff ID : ' || v_id);
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE(LPAD('=',100,'='));
+
+DBMS_OUTPUT.PUT_LINE(	      
+		RPAD('Staff Name', 10, ' ') || ' '||
+		RPAD('Staff Gender', 7, ' ')|| ' '||		      
+		RPAD('Staff Contact', 15, ' ')|| ' ' ||
+		RPAD('Staff Email', 15, ' ')|| ' ' ||
+		RPAD('Staff Health Report', 10, ' ')|| ' ' ||
+		RPAD('Staff Insurance', 6, ' ')|| ' ' ||
+		RPAD('Staff Hire Date', 15, ' ')|| ' ' ||
+		RPAD('Staff Home Address', 30, ' ')|| ' ' ||
+		RPAD('Staff Emergency Contact', 15, ' ')|| ' ' ||
+		RPAD('Staff Report', 10, ' ')|| ' ' ||
+		RPAD('Staff Position', 10));
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('=', 100, '='));
+
+ DBMS_OUTPUT.PUT_LINE(
+		RPAD(v_staffName, 10, ' ') || ' '||
+		RPAD('v_staffGender', 7, ' ')|| ' '||		      
+		RPAD('v_staffContact', 15, ' ')|| ' ' ||
+		RPAD('v_staffEmail', 15, ' ')|| ' ' ||
+		RPAD('v_staffHealthReport', 10, ' ')|| ' ' ||
+		RPAD('v_staffInsurance', 6, ' ')|| ' ' ||
+		RPAD('v_staffHireDate', 15, ' ')|| ' ' ||
+		RPAD('v_staffAddress', 30, ' ')|| ' ' ||
+		RPAD('v_staffEmergencyContact', 15, ' ')|| ' ' ||
+		RPAD('v_staffReport', 10, ' ')|| ' ' ||
+		RPAD('v_staffPosition', 10));
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('=', 100, '='));
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE(LPAD('=', 43, '=')|| '=' || RPAD('End of Report', 56, '='));
+
+ EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+   DBMS_OUTPUT.PUT_LINE('No such Staff ID: ' || v_id);
+END;
+/
+
+SELECT * from Staff where StaffID = 'S0004';
+
+EXEC prc_update_staffPosition_by_id('S0004', 'Cashier')

@@ -1,0 +1,21 @@
+CREATE OR REPLACE TRIGGER trg_GenderCheck
+before insert on Customers
+for each row
+
+Begin
+
+if(:NEW.customerGender != 'Male' and :NEW.customerGender != 'Female' )THEN 
+RAISE_APPLICATION_ERROR (-20000, 'Invalid Gender');
+END IF;
+
+if(:NEW.customerGender != null )THEN 
+RAISE_APPLICATION_ERROR (-20000, 'Invalid Gender');
+END IF;
+
+END;
+/
+
+
+insert into customers values('C0031','iamgirl','0196452379','1 Weeping Birch Circle','girl123@gmail.com','12.9','Female');
+insert into customers values('C0032','iamboy','0197454719','3 Weeping Birch Circle','boy123@gmail.com','32.9','Male');
+insert into customers values('C0033','iamnabet','0197454259','4 Weeping Birch Circle','nabet321@gmail.com','44.9','Nabet');

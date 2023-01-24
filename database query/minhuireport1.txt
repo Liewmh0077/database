@@ -1,0 +1,69 @@
+----show product item by category------
+
+
+
+CREATE OR REPLACE PROCEDURE prc_show_item_by_category(v_cat IN VARCHAR) IS
+v_productID Product.ProductID%TYPE;
+v_productName Product.ProductName%TYPE;
+v_productCategory Product.ProductCategory%TYPE;
+v_productdesc Product.ProductDescription%TYPE;
+v_productPrice Product.ProductPrice%TYPE;
+v_qtyInStock Product.QuantityInStock%TYPE;
+
+
+
+CURSOR Item_CURSOR IS
+ SELECT ProductID,ProductName, ProductCategory,ProductDescription,ProductPrice,QuantityInStock
+ FROM Product
+ WHERE ProductCategory = v_cat;
+
+BEGIN
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 150, '*'));
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE('Product Category(' || v_cat || ')Report');
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 150, '*'));
+
+ DBMS_OUTPUT.PUT_LINE(RPAD('Product ID', 9, ' ')|| ' ' ||
+		      RPAD('Product Name', 25, ' ')|| ' '||
+		      RPAD('Product Category', 18, ' ')|| ' ' ||
+		      RPAD('Product Description', 18, ' ')|| ' ' ||
+		      RPAD('Product Price', 18, ' ')|| ' ' ||
+                      RPAD('Quantity In Stock', 10, ' '));
+                      
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 150, '*'));
+
+ OPEN Item_CURSOR;
+
+ LOOP
+ FETCH Item_CURSOR INTO v_productID,v_productName,v_productCategory,v_productdesc,v_productPrice,v_qtyInStock;
+ IF (Item_CURSOR%ROWCOUNT = 0) THEN
+  DBMS_OUTPUT.PUT_LINE('No such category: ' || v_cat);
+ END IF;
+ EXIT WHEN Item_CURSOR%NOTFOUND;
+
+ DBMS_OUTPUT.PUT_LINE(RPAD(v_productID, 9, ' ')|| ' ' ||
+		      RPAD(v_productName, 25, ' ')|| ' '||
+		      RPAD(v_productCategory, 18, ' ')|| ' ' ||
+                      RPAD(v_productdesc, 18, ' ')|| ' ' ||
+                      RPAD(v_productPrice, 18, ' ')|| ' ' ||
+                      RPAD(v_qtyInStock, 10, ' '));
+
+
+ END LOOP;
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 150, '*'));
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE('Total Record: ' || Item_CURSOR%ROWCOUNT);
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 25, '*')|| '*' || RPAD('End of Report', 44, '*'));
+
+ EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+  
+ CLOSE Item_CURSOR;
+END;
+/
+
+EXEC prc_show_item_by_category('Fruits')

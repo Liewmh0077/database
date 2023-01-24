@@ -1,0 +1,65 @@
+----show all the order that use specific discountID------
+
+
+CREATE OR REPLACE PROCEDURE prc_show_order_by_discountCode(v_id IN VARCHAR) IS
+v_orderID Orders.OrderID%TYPE;
+v_customerID Orders.CustomerID%TYPE;
+v_staffID Orders.StaffID%TYPE;
+v_discountID Orders.DiscountID%TYPE;
+v_orderDate Orders.OrderDate%TYPE;
+
+
+
+CURSOR Item_CURSOR IS
+ SELECT OrderID , CustomerID, StaffID , DiscountID, OrderDate
+ FROM Orders
+ WHERE DiscountID = v_id;
+
+BEGIN
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 100, '*'));
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE('Discount ID(' || v_id || ')Report');
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 100, '*'));
+
+ DBMS_OUTPUT.PUT_LINE(RPAD('Order ID', 9, ' ')|| ' ' ||
+		      RPAD('Customer ID', 25, ' ')|| ' '||
+		      RPAD('Staff ID', 18, ' ')|| ' ' ||
+		      RPAD('Discount ID', 18, ' ')|| ' ' ||
+                      RPAD('Order Date', 18, ' '));
+                      
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 100, '*'));
+
+ OPEN Item_CURSOR;
+
+ LOOP
+ FETCH Item_CURSOR INTO v_orderID, v_customerID, v_staffID, v_discountID, v_orderDate;
+ IF (Item_CURSOR%ROWCOUNT = 0) THEN
+  DBMS_OUTPUT.PUT_LINE('No such ID: ' || v_id);
+ END IF;
+ EXIT WHEN Item_CURSOR%NOTFOUND;
+
+ DBMS_OUTPUT.PUT_LINE(RPAD(v_orderID, 9, ' ')|| ' ' ||
+		      RPAD(v_customerID, 25, ' ')|| ' '||
+		      RPAD(v_staffID, 18, ' ')|| ' ' ||
+                      RPAD(v_discountID, 18, ' ')|| ' ' ||
+		      RPAD(v_orderDate, 18, ' '));
+
+
+ END LOOP;
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 100, '*'));
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE('Total Record: ' || Item_CURSOR%ROWCOUNT);
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 25, '*')|| '*' || RPAD('End of Report', 44, '*'));
+
+ EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+  
+ CLOSE Item_CURSOR;
+END;
+/
+
+EXEC prc_show_order_by_discountCode('D0005')

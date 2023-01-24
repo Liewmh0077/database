@@ -1,0 +1,20 @@
+cl scr
+SET PAGESIZE 100
+SET LINESIZE 130
+
+
+
+
+COMPUTE sum of profit ON REPORT
+BREAK ON REPORT
+COLUMN DUMMY HEADING ''
+create or replace view query_1 as
+select p.ProductID ,ProductName,sum(o.Quantity)as total_Quantity,p.ProductPrice,sum(p.ProductPrice*o.Quantity)as profit
+from Product p, OrderDetails o
+where p.ProductID = o.ProductID
+group by p.ProductID,p.ProductName,p.ProductPrice
+order by total_Quantity desc;
+
+
+
+

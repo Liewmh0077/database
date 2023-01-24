@@ -1,0 +1,52 @@
+SET PAGESIZE 100
+SET LINESIZE 130
+
+
+CREATE OR REPLACE PROCEDURE prc_update_discountValue_by_id(v_id IN VARCHAR, v_dvalue in decimal) IS
+v_discountValue Discount.DiscountValue%TYPE;
+v_expiredDate Discount.ExpiredDate%TYPE;
+v_voucherCOde Discount.VoucherCode%TYPE;
+
+
+BEGIN
+
+update Discount
+set DiscountValue = v_dvalue
+where DiscountID = v_id;
+
+ SELECT DiscountValue, ExpiredDate, VoucherCode INTO
+        v_discountValue, v_ExpiredDate,v_VoucherCode
+ FROM Discount
+ WHERE DiscountID = v_id;
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('*', 100, '='));
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE('Discount ID : ' || v_id);
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE(LPAD('=',100,'='));
+
+DBMS_OUTPUT.PUT_LINE(	      
+		RPAD('Discount Value', 10, ' ') || ' '||
+		RPAD('Expired Date', 10, ' ')|| ' '||		      
+		RPAD('Voucher Code', 10));
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('=', 100, '='));
+
+ DBMS_OUTPUT.PUT_LINE(
+		RPAD(v_discountValue, 10, ' ') || ' '||
+		RPAD('v_expiredDate', 10, ' ')|| ' '||		      
+		RPAD('v_voucherCode', 10));
+
+ DBMS_OUTPUT.PUT_LINE(LPAD('=', 100, '='));
+ DBMS_OUTPUT.PUT_LINE(CHR(10));
+ DBMS_OUTPUT.PUT_LINE(LPAD('=', 43, '=')|| '=' || RPAD('End of Report', 56, '='));
+
+ EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+   DBMS_OUTPUT.PUT_LINE('No such Discount ID: ' || v_id);
+END;
+/
+
+SELECT * from Discount where DiscountID = 'D0001';
+
+EXEC prc_update_discountValue_by_id('D0001', '0.70')

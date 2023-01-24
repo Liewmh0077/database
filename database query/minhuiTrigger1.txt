@@ -1,0 +1,33 @@
+ALTER TABLE Discount
+add(subtotal NUMBER Default 0);
+
+create or replace trigger trg_newPayment
+Before Insert on OrderDetails
+for each row
+
+
+declare
+
+v_productPrice Product.ProductPrice%TYPE;
+v_discountValue Discount.DiscountValue%TYPE;
+v_amount NUMBER := 0;
+
+
+Begin
+
+select ProductPrice into v_productPrice
+from Product
+where ProductID = :New.ProductID;
+
+select DiscountValue into v_discountValue
+from Discount
+where DiscountID in (SELECT d.DiscountID FROM OrderDetails od, Orders o, Discount d WHERE d.DiscountID = o.DiscountID AND o.OrderID = :NEW.OrderID);
+
+v_amount := :new.Quantity * v_ProductPrice;
+
+update Discount
+set subtotal = subtotal + (DiscountValue * v_amount)
+where DiscountID in (SELECT d.DiscountID FROM OrderDetails od, Orders o, Discount d WHERE d.DiscountID = o.DiscountID AND o.DiscountID = :NEW.OrderID);
+
+end;
+/

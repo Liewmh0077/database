@@ -1,0 +1,14 @@
+cl scr
+Prompt 'Customer Record'
+prompt
+ACCEPT v_g_id char   FORMAT 'A6'  PROMPT 'Enter Customer ID(CXXXX)      : '
+
+select c.CustomerID, o.OrderID, d.ProductID, p.ProductName, d.Quantity
+from Customers c, Orders o, OrderDetails d,  Product p
+where c.CustomerID = '&v_g_id'
+and c.customerID = o.CustomerID
+and o.OrderID = d.OrderID
+and d.ProductID = p.ProductID
+order by d.ProductID;
+
+

@@ -1,0 +1,22 @@
+cl scr
+SET PAGESIZE 100
+SET LINESIZE 130
+
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY'; 
+ACCEPT startDate CHAR FORMAT 'A11' PROMPT 'Start of Service date: '
+ACCEPT endDate CHAR FORMAT 'A11' PROMPT 'End of Service date: '
+
+
+column StaffID format A15 heading "Staff ID" Justify center;
+column StaffName format A20 heading "Staff Name" justify center;
+column StaffPosition format A20 heading "Staff Position" justify center;
+
+TTITLE LEFT 'Amount of Order taken by each of the Staff between '&startDate' and '&endDate''
+select s.StaffID, StaffName, StaffPosition, count(o.orderID) as num_order
+from Staff s , Orders o
+where s.StaffID = o.StaffID
+And OrderDate between '&startDate' and '&endDate'
+group by s.StaffID,StaffName,StaffPosition
+order by s.StaffID;
+
+Ttitle off

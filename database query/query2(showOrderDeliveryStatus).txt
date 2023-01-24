@@ -1,0 +1,18 @@
+cl scr
+alter table Product
+modify ProductName                varchar(20);
+alter table Delivery
+modify DeliverAddress                varchar(30);
+
+
+Prompt 'order delivery status'
+prompt
+ACCEPT v_g_id char   FORMAT 'A6'  PROMPT 'Enter Order ID(ORXXXX)      : '
+
+select o.OrderID, p.ProductID, p.ProductName, d.DeliverCode, d.DeliverAddress, d.DeliverStatus
+from Orders o,OrderDetails r,Product p, Delivery d
+where o.OrderID = '&v_g_id'
+and o.OrderID = r.OrderID
+and r.ProductID = p.ProductID
+and o.OrderID = d.OrderID
+order by d.DeliverStatus;

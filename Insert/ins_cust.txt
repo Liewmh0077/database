@@ -1,0 +1,32 @@
+insert into customer values('C0001','Benetta','0142725590','6 Holmberg Circle','Benetta2853@gmail.com','493.9','Male');
+insert into customer values('C0002','Desmond','0167507163','399 Laurel Parkway','Desmond9262@gmail.com','439.3','Male');
+insert into customer values('C0003','Ilyse','0146217948','18062 Caliangt Park','Ilyse3057@gmail.com','379.5','Female');
+insert into customer values('C0004','Joann','0142725590','204 Arizona Road','Joann2234@gmail.com','458.0','Female');
+insert into customer values('C0005','Gillan','0164080324','32300 Bobwhite Place','Gillan8325@gmail.com','364.7','Female');
+insert into customer values('C0006','Mikkel','0139006702','5 La Follette Place','Mikkel3922@gmail.com','83.1','Male');
+insert into customer values('C0007','Delcina','0149469009','38517 Hanover Place','Delcina5487@gmail.com','307.4','Female');
+insert into customer values('C0008','Cindee','0148781867','2 Mendota Alley','Cindee6274@gmail.com','87.4','Female');
+insert into customer values('C0009','Christian','0135436662','538 Mcbride Hill','Christian6932@gmail.com','869.1','Female');
+insert into customer values('C0010','Cody','0198504851','7835 Basil Hill','Cody4866@gmail.com','54.0','Male');
+insert into customer values('C0011','Huberto','1478862236','09 Mosinee Place','Huberto7966@gmail.com','20.1','Male');
+insert into customer values('C0012','Lou','0187866323','31265 Johnson Plaza','Lou4905@gmail.com','870.8','Male');
+insert into customer values('C0013','Malinda','0119877092','423 Randy Junction','Malinda2425@gmail.com','55.1','Female');
+insert into customer values('C0014','Margarete','0162647965','47936 Texas Avenue','Margarete9713@gmail.com','93.9','Female');
+insert into customer values('C0015','Westbrooke','0119996217','0519 Mallard Street','Westbrooke2689@gmail.com','1.9','Male');
+insert into customer values('C0016','Dennie','0184638512','889 Fuller Crossing','Dennie6475@gmail.com','6.5','Female');
+insert into customer values('C0017','Bonnie','0143269991','8 Portage Drive','Bonnie9411@gmail.com','415.8','Female');
+insert into customer values('C0018','Farlie','0134692401','61 Dunning Road','Farlie8343@gmail.com','59.8','Male');
+insert into customer values('C0019','Colleen','0198916384','0017 Badeau Court','Colleen8287@gmail.com','46.9','Female');
+insert into customer values('C0020','Glenn','0178494625','23 Marcy Lane','Glenn7348@gmail.com','603.2','Male');
+insert into customer values('C0021','Rosella','0193987564','4868 Graceland Street','Rosella6891@gmail.com','4.2','Female');
+insert into customer values('C0022','Glennie','0179069158','1210 Logan Circle','Glennie4499@gmail.com','6.3','Female');
+insert into customer values('C0023','Benson','0197965229','9 Lakewood Trail','Benson4936@gmail.com','261.4','Male');
+insert into customer values('C0024','Cammi','0121519272','540 Golden Leaf Point','Cammi3686@gmail.com','77.2','Female');
+insert into customer values('C0025','Clement','0116980744','8747 Union Court','Clement2015@gmail.com','835.5','Male');
+insert into customer values('C0026','Conroy','0178749185','3 Stephen Hill','Conroy4709@gmail.com','1.9','Male');
+insert into customer values('C0027','Tamar','0181342711','750 Forest Run Junction','Tamar4817@gmail.com','651.2','Female');
+insert into customer values('C0028','Normy','0121852308','296 Golf Trail','Normy6325@gmail.com','604.7','Male');
+insert into customer values('C0029','Tucker','0128884603','661 Kenwood Pass','Tucker5853@gmail.com','89.8','Male');
+insert into customer values('C0030','Juliane','0197454379','2 Weeping Birch Circle','Juliane66973@gmail.com','49.9','Female');
+
+
